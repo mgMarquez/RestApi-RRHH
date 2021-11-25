@@ -1,0 +1,64 @@
+################################################################################
+# Los Archivos con extensión http son interpretados por la extensión REST Client
+################################################################################
+
+# Variable con la URL base
+@BASE_API=http://localhost:8080
+
+### Obtener raiz
+GET {{BASE_API}}/
+
+
+### Obtener ping
+GET {{BASE_API}}/ping
+
+# Variable con la URL completa hacia la API de departamentos
+@API_DEPARTAMENTOS={{BASE_API}}/api/v1/departamentos
+
+### Obtener todos los departamentos
+GET {{API_DEPARTAMENTOS}}
+
+### Obtener departamento con id d009
+GET {{API_DEPARTAMENTOS}}/d009
+
+### Obtener departamento con id d00999 (no existe)
+GET {{API_DEPARTAMENTOS}}/d00999
+
+### Obtener el Administrador del departamento con id d009
+GET {{API_DEPARTAMENTOS}}/d009/manager
+
+
+### Agregar un departamento
+POST {{API_DEPARTAMENTOS}}
+Content-Type: application/json
+
+{
+    "dept_no":"dinf",
+    "dept_name":"Departamento de Sistemas"
+}
+
+### Modificar departamento con id dinf
+PUT {{API_DEPARTAMENTOS}}/dinf
+Content-Type: application/json
+
+{
+    "dept_no":"dinf",
+    "dept_name":"Depto. de Sistemas"
+}
+
+### Eliminar departamento con id dinf
+DELETE {{API_DEPARTAMENTOS}}/dinf
+
+### Obtener departamento con id dinf
+GET {{API_DEPARTAMENTOS}}/dinf
+
+////////////////////////////////
+////// 1- empleados de un departamento
+////////////////////////////////
+### Obtener los Empleados del departamento con id d009
+GET {{API_DEPARTAMENTOS}}/d009/empleados
+
+
+### Obtener los Empleados del departamento con id d00999 (no existe)
+GET {{API_DEPARTAMENTOS}}/d00999/empleados
+

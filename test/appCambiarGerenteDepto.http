@@ -1,0 +1,18 @@
+# Variable con la URL base
+@BASE_API=http://localhost:8080
+
+////////////////////////////////
+////// 4 - historial gerente
+////////////////////////////////
+
+# Variable con la URL completa hacia la API de gerente
+@API_HISTORIAL_EMP={{BASE_API}}/api/v1/gerente
+
+### Obtener los gerentes de cada departamento
+GET {{API_HISTORIAL_EMP}}/
+
+# Variable con la URL completa hacia la API de departamentos
+@API_DEPARTAMENTOS={{BASE_API}}/api/v1/departamentos
+
+### Obtener el Administrador del departamento con id d009
+GET {{API_DEPARTAMENTOS}}/d009/manager

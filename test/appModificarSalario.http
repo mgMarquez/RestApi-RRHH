@@ -1,0 +1,41 @@
+
+# Variable con la URL base
+@BASE_API=http://localhost:8080
+
+////////////////////////////////
+////// 2- salarios
+////////////////////////////////
+
+# Variable con la URL completa hacia la API de salarios
+@API_SALARIOS={{BASE_API}}/api/v1/salarios
+
+### Obtener salario actual del empleado con id 10001
+GET {{API_SALARIOS}}/10001/actual
+
+### Obtener todos los salarios del empleado con id 10001
+GET {{API_SALARIOS}}/10001
+
+### Agregar salario
+POST {{API_SALARIOS}}
+Content-Type: application/json
+
+{
+    "emp_no":"11", 
+    "salary":"9", 
+    "from_date": "2020-02-02", 
+    "to_date": "9999-01-01"
+}
+
+### Eliminar salario from_date: "2020-02-02"
+DELETE {{API_SALARIOS}}
+Content-Type: application/json
+
+{
+    "emp_no":"11", 
+    "from_date": "2020-02-02"
+}
+
+
+
+
+

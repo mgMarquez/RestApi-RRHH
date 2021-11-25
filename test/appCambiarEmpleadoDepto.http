@@ -1,0 +1,22 @@
+# Variable con la URL base
+@BASE_API=http://localhost:8080
+
+////////////////////////////////
+////// 3 - historial empleado
+////////////////////////////////
+
+# Variable con la URL completa hacia la API de historial de empleado
+@API_HISTORIAL_EMP={{BASE_API}}/api/v1/historial-empleado
+
+### Obtener historial de empleado actual con id 10001
+GET {{API_HISTORIAL_EMP}}/10001/actual
+
+
+### pruebas
+PUT {{API_HISTORIAL_EMP}}/
+Content-Type: application/json
+
+{
+    "emp_no":"10001",
+    "dept_no":"d002"
+}
